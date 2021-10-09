@@ -11,7 +11,7 @@ LogLevel = 'INFO'
 
 [Service]
 HealthCheckInterval = '10s'
-Host = 'localhost'
+Host = '192.168.0.86'
 Port = 59999 # Device serivce are assigned the 599xx range
 ServerBindAddr = ''  # blank value defaults to Service.Host value
 StartupMsg = 'device simple started'
@@ -20,24 +20,24 @@ MaxRequestSize = 0 # value 0 unlimit the request size.
 RequestTimeout = '20s'
 
 [Registry]
-Host = 'localhost'
+Host = '192.168.0.86'
 Port = 8500
 Type = 'consul'
 
 [Clients]
   [Clients.core-data]
   Protocol = 'http'
-  Host = 'localhost'
+  Host = '192.168.0.86'
   Port = 59880
 
   [Clients.core-metadata]
   Protocol = 'http'
-  Host = 'localhost'
+  Host = '192.168.0.86'
   Port = 59881
 
 [MessageQueue]
 Protocol = 'redis'
-Host = 'localhost'
+Host = '192.168.0.86'
 Port = 6379
 Type = 'redis'
 AuthMode = 'usernamepassword'  # required for redis messagebus (secure or insecure).
@@ -61,7 +61,7 @@ PublishTopicPrefix = 'edgex/events/device' # /<device-profile-name>/<device-name
 # the token and secret store in vault for 'device-simple'
 [SecretStore]
 Type = 'vault'
-Host = 'localhost'
+Host = '192.168.0.86'
 Port = 8200
 Path = 'device-simple/'
 Protocol = 'http'
