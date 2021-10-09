@@ -19,6 +19,7 @@ import (
 	"os"
 	"reflect"
 	"time"
+	"math/rand"
 
 	"github.com/edgexfoundry/go-mod-core-contracts/v2/clients/logger"
 	"github.com/edgexfoundry/go-mod-core-contracts/v2/common"
@@ -136,7 +137,10 @@ func (s *SimpleDriver) HandleReadCommands(deviceName string, protocols map[strin
 
 	if len(reqs) == 1 {
 		res = make([]*sdkModels.CommandValue, 1)
-		if reqs[0].DeviceResourceName == "SwitchButton" {
+		if reqs[0].DeviceResourceName == "RandomNumber" {
+			cv, _ := sdkModels.NewCommandValue(reqs[0].DeviceResourceName, common.ValueTypeInt32, int32(rand.Intn(100)))
+			res[0] = cv
+		} else if reqs[0].DeviceResourceName == "SwitchButton" {
 			cv, _ := sdkModels.NewCommandValue(reqs[0].DeviceResourceName, common.ValueTypeBool, s.switchButton)
 			res[0] = cv
 		} else if reqs[0].DeviceResourceName == "Xrotation" {
