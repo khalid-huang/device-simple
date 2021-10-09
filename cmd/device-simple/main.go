@@ -9,8 +9,8 @@
 package main
 
 import (
-	"github.com/edgexfoundry/device-sdk-go/v2"
-	"github.com/edgexfoundry/device-sdk-go/v2/example/driver"
+	"github.com/edgexfoundry/device-simple"
+	"github.com/edgexfoundry/device-simple/driver"
 	"github.com/edgexfoundry/device-sdk-go/v2/pkg/startup"
 )
 
